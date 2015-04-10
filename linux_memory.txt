@@ -1,4 +1,4 @@
-bing@bing ~ $ uname -r 
+bibing@bing ~ $ uname -r
 2.6.25-gentoo-r4
 
 
@@ -10,8 +10,8 @@ oom killer or  malloc fail.
 vm.overcommit_memory = 0:     3G user space                            OOM_killer
 vm.overcommit_memory = 2:  swap+vm.overcommit_ratio*RAM           swap+vm.overcommit_ratio*RAM
 
-µ±overcommit_memoryÎª0Ê±£¬Í¨¹ıÑÓ³Ù·ÖÅäĞéÄâÄÚ´æÄÜ·ÖÅäµ½Ê¹ÓÃÍê3GµÄÓÃ»§¿Õ¼ä£»µ±ÊµÊ±·ÖÅäÊ±Ã»ÓĞ¿ÉÓÃĞéÄâÄÚ´æÊ±£¬oom_killer¸ù¾İ¹æÔòkillµÃ·Ö×î¸ßµÄ½ø³Ì¡£
-µ±overcommit_memoryÎª1Ê±£¬·ÖÅäÄÚ´æ³¬¹ıswap+vm.overcommit_ratio*RAMÊ±£¬¶¼»á·ÖÅäÊ§°Ü¡£
+å½“overcommit_memoryä¸º0æ—¶ï¼Œé€šè¿‡å»¶è¿Ÿåˆ†é…è™šæ‹Ÿå†…å­˜èƒ½åˆ†é…åˆ°ä½¿ç”¨å®Œ3Gçš„ç”¨æˆ·ç©ºé—´ï¼›å½“å®æ—¶åˆ†é…æ—¶æ²¡æœ‰å¯ç”¨è™šæ‹Ÿå†…å­˜æ—¶ï¼Œoom_killeræ ¹æ®è§„åˆ™killå¾—åˆ†æœ€é«˜çš„è¿›ç¨‹
+å½“overcommit_memoryä¸º1æ—¶ï¼Œåˆ†é…å†…å­˜è¶…è¿‡swap+vm.overcommit_ratio*RAMæ—¶ï¼Œéƒ½ä¼šåˆ†é…å¤±è´¥
 
 
 
@@ -20,19 +20,14 @@ vm.overcommit_memory = 2:  swap+vm.overcommit_ratio*RAM           swap+vm.overco
 vm.overcommit_memort = 0:           succ                                       fail
 vm.overcommit_memort = 2:           fail                                       fail
 
-** µ±ÄÚ´æ·ÖÅä×î¶àÊ±£¬Ö´ĞĞfork¡£
+** å½“å†…å­˜åˆ†é…æœ€å¤šæ—¶ï¼Œæ‰§è¡Œforkã€‚
 
 
-µ±overcommit_memoryÎª0Ê±£¬forkÊ±²»¼ì²é¡£
+å½“overcommit_memoryä¸º0æ—¶ï¼Œforkæ—¶ä¸æ£€æŸ¥.
 
 
-linux LSM:  linux°²È«¿ò¼Ü
-linux¸ù¾İÄÚºËµÄÅäÖÃ²»Í¬ºÍÆô¶¯Ê±µÄ²»Í¬µÄboot²ÎÊı 'security='À´¾õµÃ²ÉÓÃµÄ²ßÂÔ
-ÔÚfork£¬mmapµÈÒ»Ğ©ÓëÄÚ´æÏà¹ØµÄº¯ÊıÖĞ¶¼Òªµ÷ÓÃhookº¯Êı(security_vm_enough_memory)£¬²»Í¬µÄº¯ÊıÖ´ĞĞµÄ²ßÂÔ²»Í¬¡£
-Ä¿Ç°ÔÚÕâĞ©²»Í¬µÄ¿ò¼ÜÖĞvm_enough_memoryº¯ÊıÊµÏÖµÄ¹¦ÄÜ¶¼ÊÇµ÷ÓÃ(__vm_enough_memory)ÏµÍ³µ÷ÓÃÀ´account memory¡£
-¸ù¾İ¶Ô/proc/sys/vm/overcommit_memoryµÄ²»Í¬À´¼ì²éÄÚ´æµÄ·ÖÅäÎÊÌâ¡£
-
-
-
-
-
+linux LSM:  linuxå®‰å…¨æ¡†æ¶
+linuxæ ¹æ®å†…æ ¸çš„é…ç½®ä¸åŒå’Œå¯åŠ¨æ—¶çš„ä¸åŒçš„bootå‚æ•° 'security='æ¥è§‰å¾—é‡‡ç”¨çš„ç­–ç•¥
+åœ¨forkï¼Œmmapç­‰ä¸€äº›ä¸å†…å­˜ç›¸å…³çš„å‡½æ•°ä¸­éƒ½è¦è°ƒç”¨hookå‡½æ•°(security_vm_enough_memory)ï¼Œä¸åŒçš„å‡½æ•°æ‰§è¡Œçš„ç­–ç•¥ä¸åŒ
+ç›®å‰åœ¨è¿™äº›ä¸åŒçš„æ¡†æ¶ä¸­vm_enough_memoryå‡½æ•°å®ç°çš„åŠŸèƒ½éƒ½æ˜¯è°ƒç”¨(__vm_enough_memory)ç³»ç»Ÿè°ƒç”¨æ¥account memory
+æ ¹æ®å¯¹/proc/sys/vm/overcommit_memoryçš„ä¸åŒæ¥æ£€æŸ¥å†…å­˜çš„åˆ†é…é—®é¢˜
